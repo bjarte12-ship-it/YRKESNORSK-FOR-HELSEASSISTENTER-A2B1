@@ -1,0 +1,682 @@
+
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yrkesnorsk for Helseassistenter (A2-B1)</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for ikoner -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-btn.active {
+            border-bottom: 3px solid #0284c7;
+            color: #0284c7;
+            font-weight: 600;
+        }
+        .quiz-option:hover {
+            border-color: #0284c7;
+            background-color: #f0f9ff;
+        }
+        .quiz-option.selected-correct {
+            border-color: #16a34a;
+            background-color: #f0fdf4;
+        }
+        .quiz-option.selected-incorrect {
+            border-color: #dc2626;
+            background-color: #fef2f2;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header / Navigasjon -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-sky-600 text-white p-2 rounded-lg">
+                        <i class="fa-solid fa-user-nurse text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-lg leading-tight text-slate-900">Yrkesnorsk for Helseassistenter</h1>
+                        <p class="text-xs text-slate-500">Nivå A2–B1 • Voksenopplæring</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4 text-sm text-slate-600">
+                    <span class="bg-sky-50 text-sky-700 px-3 py-1 rounded-full font-medium border border-sky-100">
+                        <i class="fa-solid fa-graduation-cap mr-1"></i> CEFR A2-B1
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fane-navigasjon -->
+        <div class="bg-white border-t border-slate-100 px-4 max-w-7xl mx-auto overflow-x-auto scrollbar-none">
+            <nav class="flex space-x-6 min-w-max" id="tabNav">
+                <button onclick="switchTab('tekst1')" class="tab-btn active py-3 px-1 text-sm font-medium text-slate-600 hover:text-sky-600 transition">Del 1: Yrket</button>
+                <button onclick="switchTab('tekst2')" class="tab-btn py-3 px-1 text-sm font-medium text-slate-600 hover:text-sky-600 transition">Del 2: Egenskaper</button>
+                <button onclick="switchTab('tekst3')" class="tab-btn py-3 px-1 text-sm font-medium text-slate-600 hover:text-sky-600 transition">Del 3: HMS & Utstyr</button>
+                <button onclick="switchTab('tekst4')" class="tab-btn py-3 px-1 text-sm font-medium text-slate-600 hover:text-sky-600 transition">Del 4: Pauseprat</button>
+                <button onclick="switchTab('tekst5')" class="tab-btn py-3 px-1 text-sm font-medium text-slate-600 hover:text-sky-600 transition">Del 5: Utlysning</button>
+                <button onclick="switchTab('grammatikk')" class="tab-btn py-3 px-1 text-sm font-medium text-slate-600 hover:text-sky-600 transition">Ekstra Grammatikk</button>
+                <button onclick="switchTab('interaktiv-quiz')" class="tab-btn py-3 px-1 text-sm font-medium text-sky-700 hover:text-sky-800 transition flex items-center gap-1">
+                    <i class="fa-solid fa-circle-play text-sky-600"></i> Interaktiv Quiz
+                </button>
+                <button onclick="switchTab('fasit')" class="tab-btn py-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-700 transition">Fasit</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hovedinnhold -->
+    <main class="max-w-5xl mx-auto px-4 py-8 flex-1 w-full">
+
+        <!-- DEL 1: YRKET -->
+        <section id="tekst1" class="tab-content space-y-8">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md">Fagtekst 1</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2 mb-4">Hva gjør en helseassistent?</h2>
+                <div class="prose max-w-none text-slate-700 leading-relaxed space-y-4">
+                    <p>En helseassistent er en viktig medarbeider i helsevesenet, ofte på sykehjem, i hjemmetjenesten eller på et bofellesskap. Hovedoppgaven er å hjelpe pasienter og beboere med dagliglivets gjøremål.</p>
+                    
+                    <h3 class="text-lg font-semibold text-slate-900 pt-2">Hva gjør du?</h3>
+                    <p>Dine oppgaver inkluderer å hjelpe til med personlig <strong>stell</strong>, som å vaske, kle på og hjelpe til med toalettbesøk. Du bistår også med måltider og sørger for at pasientene får i seg riktig <strong>ernæring</strong>. En annen viktig oppgave er å observere pasientens allmenntilstand og eventuelle endringer.</p>
+                    <p>God kommunikasjon er viktig, både med pasienten og med dine <strong>kollegaer</strong>. Alle oppgaver og observasjoner skal føres inn i et system som kalles for <strong>dokumentasjon</strong>. Dette er viktig for å sikre at pasienten får riktig og trygg pleie. Du er en støtte og en viktig person som bidrar til at eldre og syke får en god hverdag.</p>
+                </div>
+
+                <!-- Vokabular-kort -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-100">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                        <h4 class="font-bold text-slate-900 mb-3 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-book text-sky-600"></i> Nøkkelord
+                        </h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong class="text-sky-900">1. Stell:</strong> Å hjelpe noen med personlig hygiene, som vask og påkledning.</li>
+                            <li><strong class="text-sky-900">2. Dokumentasjon:</strong> Å skrive ned og registrere informasjon om pasienten i et system.</li>
+                            <li><strong class="text-sky-900">3. Observasjon:</strong> Å følge nøye med på en person for å se etter endringer eller tegn.</li>
+                            <li><strong class="text-sky-900">4. Hygiene:</strong> Renhold og tiltak for å hindre sykdom og smitte.</li>
+                            <li><strong class="text-sky-900">5. Ernæring:</strong> Mat og drikke som gir kroppen nødvendig energi og næringsstoffer.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
+                        <h4 class="font-bold text-amber-900 mb-3 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-comments text-amber-600"></i> Uttrykk fra yrket
+                        </h4>
+                        <ul class="space-y-2 text-sm text-amber-950">
+                            <li><strong>Være på vakt:</strong> Å være ekstra oppmerksom og klar til å reagere.</li>
+                            <li><strong>En arm å holde i:</strong> Å være en trygg og støttende person.</li>
+                            <li><strong>Ha det travelt:</strong> Å ha mye å gjøre, lite tid.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oppgaver Del 1 -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <h3 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3">Oppgaver til Fagtekst 1</h3>
+
+                <!-- Oppgave 1 -->
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-slate-800">1. Leseforståelse</h4>
+                    <div class="space-y-2 text-sm pl-2">
+                        <p><strong>a. Hvor jobber en helseassistent oftest?</strong> (På kontor / På sykehjem eller hjemmetjeneste / På fabrikk)</p>
+                        <p><strong>b. Hva er en viktig del av personlig stell?</strong> (Å kjøre bil / Å hjelpe til med vask og påkledning / Å ringe familien)</p>
+                        <p><strong>c. Hvorfor er dokumentasjon viktig?</strong> (Fordi det er gøy / For å sikre riktig pleie / For å få høyere lønn)</p>
+                        <p><strong>d. Hva betyr det å "observere" pasienten?</strong> (Å lese en bok / Å følge nøye med på allmenntilstanden / Å spise mat)</p>
+                        <p><strong>e. Helseassistenter jobber sjelden med å hjelpe til med måltider.</strong> (SANT / USANT)</p>
+                    </div>
+                </div>
+
+                <!-- Oppgave 2 -->
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-slate-800">2. Koble nøkkelord og forklaring</h4>
+                    <p class="text-sm text-slate-600">Match riktig tall (1-5) med riktig bokstav (A-E):</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm bg-slate-50 p-4 rounded-xl">
+                        <div>
+                            <ol class="list-decimal list-inside space-y-1 font-medium">
+                                <li>Stell</li>
+                                <li>Dokumentasjon</li>
+                                <li>Observasjon</li>
+                                <li>Hygiene</li>
+                                <li>Ernæring</li>
+                            </ol>
+                        </div>
+                        <div class="space-y-1">
+                            <p><strong>A.</strong> Mat og drikke for kroppen.</p>
+                            <p><strong>B.</strong> Å følge nøye med på en person.</p>
+                            <p><strong>C.</strong> Å skrive ned informasjon om pasienten.</p>
+                            <p><strong>D.</strong> Å hjelpe med vask og påkledning.</p>
+                            <p><strong>E.</strong> Tiltak for å hindre smitte.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oppgave 3 -->
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-slate-800">3. Fyll inn riktig nøkkelord</h4>
+                    <p class="text-xs text-slate-500">Ordvalg: stell, dokumentasjon, observasjon, hygiene, ernæring</p>
+                    <ol class="list-alpha list-inside text-sm space-y-2 pl-2">
+                        <li>Sykepleieren sjekket all <span class="border-b-2 border-slate-300 px-4 inline-block"></span> før hun ringte legen.</li>
+                        <li>På morgenen hjelper jeg pasienten med personlig <span class="border-b-2 border-slate-300 px-4 inline-block"></span>.</li>
+                        <li>God hånd<span class="border-b-2 border-slate-300 px-4 inline-block"></span> er det viktigste for å unngå smitte.</li>
+                        <li>Jeg må huske å føre inn rapporten i systemet som kalles <span class="border-b-2 border-slate-300 px-4 inline-block"></span>.</li>
+                        <li>Det er viktig at beboerne får god <span class="border-b-2 border-slate-300 px-4 inline-block"></span> med sunn mat.</li>
+                    </ol>
+                </div>
+
+                <!-- Oppgave 4 -->
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-slate-800">4. Finn synonymer</h4>
+                    <p class="text-sm text-slate-600">Finn ord i teksten som betyr det samme som:</p>
+                    <ul class="text-sm space-y-1 pl-2">
+                        <li>a. Medarbeider: _____________</li>
+                        <li>b. Hovedoppgave: _____________</li>
+                        <li>c. Hjelpe til: _____________</li>
+                        <li>d. Vaske og holde rent: _____________</li>
+                        <li>e. Følge med: _____________</li>
+                    </ul>
+                </div>
+
+                <!-- Oppgave 5 -->
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-slate-800">5. Grammatikk: Setningsstruktur</h4>
+                    <div class="bg-blue-50 p-4 rounded-xl text-xs text-blue-900 mb-2">
+                        <strong>Faglig forklaring:</strong> En <strong>hovedsetning</strong> kan stå alene (f.eks. <em>Jeg er helseassistent.</em>). En <strong>leddsetning</strong> starter med ord som <em>at, fordi, når, som, selv om</em> og kan ikke stå alene. Ordet <strong>ikke</strong> står <u>foran</u> verbet i leddsetninger.
+                    </div>
+                    <div class="text-sm space-y-3 pl-2">
+                        <p><strong>a. Sett sammen riktig:</strong> (skal jeg sjekke / når jeg kommer / at medisinene)</p>
+                        <p><strong>b. Sett sammen riktig:</strong> (jeg er glad i jobben min / fordi er meningsfull)</p>
+                        <p><strong>c. Hvilken setning er riktig?</strong><br>
+                        1. Jeg føler meg bedre, selv om jeg er ikke helt frisk.<br>
+                        2. Jeg føler meg bedre, selv om jeg ikke er helt frisk.</p>
+                        <p><strong>d.</strong> Lag en setning med ordet <em>"at"</em>.</p>
+                        <p><strong>e.</strong> Lag en setning med ordet <em>"fordi"</em>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEL 2: EGENSKAPER -->
+        <section id="tekst2" class="tab-content hidden space-y-8">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md">Fagtekst 2</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2 mb-4">Personlige egenskaper og kunnskaper</h2>
+                
+                <div class="bg-slate-50 border-l-4 border-sky-600 p-4 italic text-slate-700 mb-6">
+                    "Jeg trives veldig godt i jobben min. Den er krevende, men veldig givende." – Ola (Helseassistent i 10 år)
+                </div>
+
+                <div class="prose max-w-none text-slate-700 leading-relaxed space-y-4">
+                    <p>Det viktigste i mitt yrke er å <strong>ha hjerte for</strong> menneskene vi jobber med. Vi må vise <strong>empati</strong> og ha stor <strong>tålmodighet</strong>, spesielt når beboerne har dårlige dager.</p>
+                    <p>Det er også avgjørende å være en <strong>etisk</strong> god hjelper. Vi har et stort <strong>ansvar</strong> og må alltid ta gode valg for pasienten, selv når ingen ser oss. Faglig sett er det viktig å være <strong>faglig oppdatert</strong> på nye rutiner og hjelpemidler. Du må kunne observere og vite når du skal <strong>trå til</strong> og be om hjelp fra en sykepleier. Hvis det oppstår en akutt situasjon, er det viktig å <strong>holde hodet kaldt</strong> og handle raskt og riktig.</p>
+                </div>
+
+                <!-- Vokabular -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-100">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                        <h4 class="font-bold text-slate-900 mb-3 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-book text-sky-600"></i> Nøkkelord
+                        </h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong class="text-sky-900">1. Empati:</strong> Evnen til å forstå og dele følelsene til en annen person.</li>
+                            <li><strong class="text-sky-900">2. Tålmodighet:</strong> Evnen til å vente rolig uten å bli irritert.</li>
+                            <li><strong class="text-sky-900">3. Etisk:</strong> Det som handler om hva som er rett og galt (moral).</li>
+                            <li><strong class="text-sky-900">4. Faglig oppdatert:</strong> Å ha ny og aktuell kunnskap i sitt yrke.</li>
+                            <li><strong class="text-sky-900">5. Ansvar:</strong> Plikten til å ta vare på noe/noen.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
+                        <h4 class="font-bold text-amber-900 mb-3 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-comments text-amber-600"></i> Uttrykk fra yrket
+                        </h4>
+                        <ul class="space-y-2 text-sm text-amber-950">
+                            <li><strong>Ha hjerte for:</strong> Å bry seg veldig mye om noen eller noe.</li>
+                            <li><strong>Trå til:</strong> Å hjelpe til raskt, ta ansvar.</li>
+                            <li><strong>Holde hodet kaldt:</strong> Å være rolig og tenke klart i en stressende situasjon.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oppgaver Del 2 -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <h3 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3">Oppgaver til Fagtekst 2</h3>
+                
+                <div class="space-y-4 text-sm">
+                    <h4 class="font-semibold text-slate-800 text-base">1. Leseforståelse</h4>
+                    <p>a. Hva sier Ola er det viktigste i jobben?</p>
+                    <p>b. Hva betyr det å være en "etisk god hjelper"?</p>
+                    <p>c. Hvorfor må man være faglig oppdatert?</p>
+                    <p>d. Hva skal man gjøre hvis det oppstår en akutt situasjon?</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-slate-800">5. Grammatikk: Pronomen og Spørreord</h4>
+                    <div class="bg-blue-50 p-4 rounded-xl text-xs text-blue-900 space-y-2">
+                        <p><strong>Pronomen:</strong> Erstatt substantiv (jeg, du, han, hun, vi, de). Objektsform: <em>meg, deg, ham, henne, oss, dem</em>.</p>
+                        <p><strong>Spørreord:</strong> <em>hvem, hva, hvor, når, hvorfor, hvilken/hvilket/hvilke</em>.</p>
+                    </div>
+                    <div class="space-y-2 text-sm pl-2">
+                        <p><strong>Sett inn riktig objektspronomen (ham, henne, oss, dem):</strong></p>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>Jeg snakket med Per i går. Jeg traff <span class="border-b-2 border-slate-300 px-3 inline-block"></span>.</li>
+                            <li>Kollegaen min og jeg har pause nå. Vil du sitte med <span class="border-b-2 border-slate-300 px-3 inline-block"></span>?</li>
+                            <li>Pasienten sier hun har det bra, men jeg tror ikke på <span class="border-b-2 border-slate-300 px-3 inline-block"></span>.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEL 3: HMS OG UTSTYR -->
+        <section id="tekst3" class="tab-content hidden space-y-8">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md">Fagtekst 3</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2 mb-4">Utstyr og HMS på arbeidsplassen</h2>
+                <div class="prose max-w-none text-slate-700 leading-relaxed space-y-4">
+                    <p>HMS står for Helse, Miljø og Sikkerhet og er svært viktig i helsevesenet.</p>
+                    <p>På jobben bruker vi ulike typer <strong>utstyr</strong> og hjelpemidler. For å flytte pasienter bruker vi en <strong>heis</strong> eller et <strong>løftebrett</strong>. Dette er viktig for å unngå skade på ryggen. Dette handler om <strong>ergonomi</strong>, altså hvordan man bruker kroppen riktig på jobb.</p>
+                    <p>Når vi jobber med <strong>smittsomme</strong> sykdommer, er det viktig å bruke riktig <strong>verneutstyr</strong> som hansker og smittefrakk. Vi må alltid <strong>følge rutiner</strong> for å beskytte både pasienten og oss selv.</p>
+                    <p>Hvis en pasient faller eller det skjer en ulykke, må du straks <strong>slå alarm</strong> og gi beskjed til sykepleieren. Du må også kunne gi enkel <strong>førstehjelp</strong> hvis det trengs. God HMS handler om å <strong>ta forholdsregler</strong> og vite hva du skal gjøre i en krisesituasjon.</p>
+                </div>
+
+                <!-- Vokabular -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-100">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                        <h4 class="font-bold text-slate-900 mb-3 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-sky-600"></i> Nøkkelord
+                        </h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong class="text-sky-900">1. Smittsom:</strong> Sykdom som lett smitter fra person til person.</li>
+                            <li><strong class="text-sky-900">2. Ergonomi:</strong> Å tilpasse arbeidet for å unngå belasting og skader.</li>
+                            <li><strong class="text-sky-900">3. Varsling:</strong> Å gi beskjed eller alarm om uønskede hendelser.</li>
+                            <li><strong class="text-sky-900">4. Verneutstyr:</strong> Utstyr (hansker, munnbind) til beskyttelse.</li>
+                            <li><strong class="text-sky-900">5. Førstehjelp:</strong> Akutt hjelp før medisinsk personell overtar.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
+                        <h4 class="font-bold text-amber-900 mb-3 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-comments text-amber-600"></i> Uttrykk fra yrket
+                        </h4>
+                        <ul class="space-y-2 text-sm text-amber-950">
+                            <li><strong>Slå alarm:</strong> Å kalle på hjelp umiddelbart i nød.</li>
+                            <li><strong>Ta forholdsregler:</strong> Å gjøre forebyggende sikkerhetstiltak.</li>
+                            <li><strong>Følge rutiner:</strong> Å arbeide strengt etter faste instrukser.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oppgaver Del 3 -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <h3 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3">Grammatikkøvinger til Fagtekst 3</h3>
+                
+                <div class="space-y-4">
+                    <div class="bg-blue-50 p-4 rounded-xl text-xs text-blue-900 space-y-1">
+                        <p><strong>Verb (Presens / Preteritum):</strong> Presens skjer nå (<em>observerer</em>). Preteritum skjedde i fortid (<em>observerte</em>).</p>
+                        <p><strong>Substantiv (Ubestemt / Bestemt):</strong> <em>en pasient</em> (ubestemt) &rarr; <em>pasienten</em> (bestemt).</p>
+                    </div>
+
+                    <div class="space-y-3 text-sm">
+                        <h4 class="font-semibold text-slate-800">A. Skriv verbene i Preteritum (fortid):</h4>
+                        <ol class="list-decimal list-inside space-y-2 pl-2">
+                            <li>Helseassistenten (observere) <span class="border-b-2 border-slate-300 px-3 inline-block"></span> pasienten nøye i går.</li>
+                            <li>Hun (dokumentere) <span class="border-b-2 border-slate-300 px-3 inline-block"></span> alt før skiftet var slutt.</li>
+                            <li>Vi (måtte) <span class="border-b-2 border-slate-300 px-3 inline-block"></span> bruke munnbind forrige uke.</li>
+                        </ol>
+                    </div>
+
+                    <div class="space-y-3 text-sm pt-2">
+                        <h4 class="font-semibold text-slate-800">B. Skriv i bestemt form entall:</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+                            <div class="bg-slate-50 p-2 rounded">en pasient &rarr; <strong>pasienten</strong></div>
+                            <div class="bg-slate-50 p-2 rounded">et løftebrett &rarr; <strong>___</strong></div>
+                            <div class="bg-slate-50 p-2 rounded">en ulykke &rarr; <strong>___</strong></div>
+                            <div class="bg-slate-50 p-2 rounded">en rutine &rarr; <strong>___</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEL 4: PAUSEPRAT -->
+        <section id="tekst4" class="tab-content hidden space-y-8">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md">Fagtekst 4</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2 mb-4">Pauseprat på jobben</h2>
+                
+                <div class="bg-emerald-50 text-emerald-900 p-4 rounded-xl text-sm mb-6 border border-emerald-200">
+                    <strong class="font-bold flex items-center gap-1 mb-1">
+                        <i class="fa-solid fa-lightbulb"></i> Intro om pauseprat:
+                    </strong>
+                    Pauseprat bygger godt <strong>samarbeid</strong> og <strong>tillit</strong>. Snakk om nøytrale temaer som vær, helg og mat. Unngå å snakke negativt om pasienter, og bruk pausen til å <strong>lade batteriene</strong>, <strong>ta en pust i bakken</strong> og <strong>skravle litt</strong>!
+                </div>
+
+                <div class="space-y-6 text-sm">
+                    <!-- Dialog 1 -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-900 mb-2">Dialog 1: På kjøkkenet</h4>
+                        <p class="mb-1"><strong>Ahmad:</strong> Hei Maria! Har du sett at det nye systemet for <strong>velferdsteknologi</strong> er installert på avdeling C?</p>
+                        <p class="mb-1"><strong>Maria:</strong> Ja! Det kommer til å gjøre dokumentasjonen enklere. Håper vi får god opplæring.</p>
+                        <p><strong>Ahmad:</strong> Enig. Skal vi ta en kaffe til? Jeg må <strong>lade batteriene</strong> litt før medisinrunden.</p>
+                    </div>
+
+                    <!-- Dialog 2 -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-900 mb-2">Dialog 2: Ved kaffemaskinen</h4>
+                        <p class="mb-1"><strong>Fatima:</strong> Åh, nå var det deilig å <strong>ta en pust i bakken</strong>. Hvordan var ditt skift, Per?</p>
+                        <p class="mb-1"><strong>Per:</strong> Ganske rolig! Men jeg slet litt med den nye heisen. Den er litt komplisert.</p>
+                        <p><strong>Fatima:</strong> Vi må øve mer. Skal du <strong>skravle litt</strong> med familien i helgen?</p>
+                    </div>
+                </div>
+
+                <!-- Vokabular -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-100">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                        <h4 class="font-bold text-slate-900 mb-3 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-users text-sky-600"></i> Nøkkelord
+                        </h4>
+                        <ul class="space-y-1.5 text-sm">
+                            <li><strong>1. Kollega:</strong> En person du jobber sammen med.</li>
+                            <li><strong>2. Skift:</strong> Arbeidsperiode (dag/kveld/natt).</li>
+                            <li><strong>3. Velferdsteknologi:</strong> Hjelpemidler for økt trygghet/mestring.</li>
+                            <li><strong>4. Samarbeid:</strong> Å jobbe sammen for felles mål.</li>
+                            <li><strong>5. Turnus:</strong> Rullerende arbeidsplan.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
+                        <h4 class="font-bold text-amber-900 mb-3 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-mug-hot text-amber-600"></i> Uttrykk
+                        </h4>
+                        <ul class="space-y-1.5 text-sm text-amber-950">
+                            <li><strong>Skravle litt:</strong> Å prate hyggelig og uformelt.</li>
+                            <li><strong>Lade batteriene:</strong> Å hvile for å få ny energi.</li>
+                            <li><strong>Ta en pust i bakken:</strong> Å ta en kort pause.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEL 5: STILLINGSUTLYSNING -->
+        <section id="tekst5" class="tab-content hidden space-y-8">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md">Stillingsutlysning</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2 mb-1">Helseassistent – Bydel Vest</h2>
+                <p class="text-sm text-slate-500 mb-6">Sykehjemmet Stjerneveien • Søknadsfrist: 15. oktober 2025</p>
+
+                <div class="space-y-4 text-sm text-slate-700 bg-slate-50 p-5 rounded-xl border border-slate-200">
+                    <div>
+                        <h4 class="font-bold text-slate-900">Om oss:</h4>
+                        <p>Sykehjemmet Stjerneveien er et moderne sykehjem med fokus på livskvalitet og trygghet. Vi søker deg som har et varmt hjerte og ønske om å bidra til en meningsfull hverdag for eldre.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Arbeidsoppgaver:</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Helhetlig pleie og stell (personlig hygiene, påkledning).</li>
+                            <li>Bistå med ernæring og medisinutdeling etter delegasjon.</li>
+                            <li>Dokumentere i journalsystemet og observere tilstand.</li>
+                            <li>Bidra positivt til arbeidsmiljøet.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Kvalifikasjoner:</h4>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Relevant erfaring kan kompensere for manglende formell utdanning.</li>
+                            <li>Norskkunnskap minimum B1-nivå (muntlig og skriftlig).</li>
+                            <li>Erfaring fra geriatri (eldreomsorg) er ønskelig.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEL 6: EKSTRA GRAMMATIKK -->
+        <section id="grammatikk" class="tab-content hidden space-y-8">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Ekstra Grammatikk (Nivå A2-B1)</h2>
+
+                <div class="space-y-6 text-sm">
+                    <!-- Oppgave 1 -->
+                    <div class="p-4 bg-slate-50 rounded-xl space-y-2">
+                        <h4 class="font-bold text-slate-900">1. Plassering av "ikke" i leddsetninger</h4>
+                        <p class="text-slate-600">Sett inn 'ikke' på riktig plass:</p>
+                        <p class="pl-2">a. Han sier at han <span class="border-b-2 border-slate-400 px-3 inline-block"></span> kan komme på jobb i morgen.</p>
+                    </div>
+
+                    <!-- Oppgave 2 -->
+                    <div class="p-4 bg-slate-50 rounded-xl space-y-2">
+                        <h4 class="font-bold text-slate-900">2. Gradbøying av adjektiv</h4>
+                        <p class="text-slate-600">Fyll ut komparativ og superlativ:</p>
+                        <p class="pl-2">God &rarr; <strong>bedre</strong> &rarr; <strong>best</strong></p>
+                        <p class="pl-2">Det er <span class="border-b-2 border-slate-400 px-3 inline-block"></span> (varm) i stua enn på gangen.</p>
+                    </div>
+
+                    <!-- Oppgave 3 -->
+                    <div class="p-4 bg-slate-50 rounded-xl space-y-2">
+                        <h4 class="font-bold text-slate-900">3. Å eller Og?</h4>
+                        <p class="pl-2">Vi må huske <span class="border-b-2 border-slate-400 px-3 inline-block"></span> observere <span class="border-b-2 border-slate-400 px-3 inline-block"></span> dokumentere alt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERAKTIV QUIZ -->
+        <section id="interaktiv-quiz" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="flex justify-between items-center mb-6 border-b border-slate-100 pb-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md">Interaktiv Test</span>
+                        <h2 class="text-2xl font-bold text-slate-900 mt-1">Quiz: Helseassistent Norsk</h2>
+                    </div>
+                    <div id="quizProgress" class="text-sm font-semibold text-sky-700 bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-100">
+                        Spørsmål 1 / 10
+                    </div>
+                </div>
+
+                <!-- Quiz Card Container -->
+                <div id="quizContainer" class="space-y-6">
+                    <div id="questionBox">
+                        <h3 id="questionText" class="text-lg font-semibold text-slate-900 mb-2"></h3>
+                        <p id="hintText" class="text-xs text-slate-500 italic mb-4"></p>
+                        
+                        <!-- Options Container -->
+                        <div id="optionsContainer" class="space-y-3"></div>
+                    </div>
+
+                    <!-- Rationale Box -->
+                    <div id="explanationBox" class="hidden p-4 rounded-xl text-sm leading-relaxed"></div>
+
+                    <!-- Control Buttons -->
+                    <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                        <button id="prevBtn" onclick="prevQuestion()" class="px-4 py-2 bg-slate-100 text-slate-600 rounded-xl font-medium text-sm hover:bg-slate-200 disabled:opacity-50">
+                            <i class="fa-solid fa-arrow-left mr-1"></i> Forrige
+                        </button>
+                        <button id="nextBtn" onclick="nextQuestion()" class="px-5 py-2 bg-sky-600 text-white rounded-xl font-medium text-sm hover:bg-sky-700 shadow-sm shadow-sky-200">
+                            Neste <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Screen -->
+                <div id="resultsScreen" class="hidden text-center py-8 space-y-4">
+                    <div class="w-16 h-16 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900">Quizen er fullført!</h3>
+                    <p id="scoreText" class="text-lg text-slate-600 font-medium"></p>
+                    <button onclick="resetQuiz()" class="px-6 py-2.5 bg-sky-600 text-white rounded-xl font-medium text-sm hover:bg-sky-700 shadow-md shadow-sky-100 transition">
+                        <i class="fa-solid fa-rotate-right mr-2"></i> Prøv på nytt
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FASIT TAB -->
+        <section id="fasit" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold text-slate-900 mb-4">Fasit for lærer/egenkontroll</h2>
+                <div class="prose max-w-none text-xs text-slate-600 space-y-4 font-mono bg-slate-50 p-4 rounded-xl">
+                    <p><strong>Fasit 1:</strong> 1a: Sykehjem/hjemmetjeneste, 1b: Vask/påkledning, 1c: Sikre riktig pleie, 1d: Følge med, 1e: USANT | 2: A=5, B=3, C=2, D=1, E=4</p>
+                    <p><strong>Fasit 2:</strong> 1a: Ha hjerte for menneskene, 1b: Gode etiske valg, 1c: Holde seg oppdatert på rutiner | 5a: ham, oss, henne</p>
+                    <p><strong>Fasit 3:</strong> 5a: 1. observerte, 2. dokumenterte, 3. måtte | 5b: løftebrettet, ulykken, rutinen</p>
+                    <p><strong>Fasit 4:</strong> 5a: 1. kan IKKE, 2. har IKKE | 5b: 1. på, 2. til/i, 3. om</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+        <p>© Yrkesnorsk for Helseassistenter • Voksenopplæring A2–B1</p>
+    </footer>
+
+    <!-- JavaScript Logikk -->
+    <script>
+        // Fane-bytting
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.remove('hidden');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Quiz-data
+        const quizData = [
+            {
+                question: "Hva er et eksempel på personlig 'stell' for en helseassistent?",
+                hint: "Dette er en grunnleggende oppgave som handler om kroppslig velvære.",
+                options: [
+                    { text: "Å hjelpe en beboer med å dusje og kle på seg.", isCorrect: true, rationale: "Riktig! Dette beskriver kjerneoppgaven i personlig hygiene." },
+                    { text: "Å bestille medisiner fra apoteket.", isCorrect: false, rationale: "Dette gjøres av sykepleier." },
+                    { text: "Å skrive rapport i journalsystemet.", isCorrect: false, rationale: "Dette kalles dokumentasjon." },
+                    { text: "Å lage mat til hele avdelingen.", isCorrect: false, rationale: "Dette handler om ernæring/kjøkken." }
+                ]
+            },
+            {
+                question: "Hvorfor er 'dokumentasjon' en viktig del av jobben?",
+                hint: "Tenk på sikkerhet og kommunikasjon mellom kollegaer.",
+                options: [
+                    { text: "For å sikre at alle kollegaer har riktig informasjon om pasienten.", isCorrect: true, rationale: "Riktig! Dette sikrer kontinuitet og pasientsikkerhet." },
+                    { text: "Fordi det er lovpålagt å skrive 5 sider hver dag.", isCorrect: false, rationale: "Det er ikke krav til antall sider." },
+                    { text: "For å bevise for sjefen at man har jobbet hardt.", isCorrect: false, rationale: "Hovedmålet er pasientsikkerhet." }
+                ]
+            },
+            {
+                question: "Hva betyr det å vise 'empati' i jobben?",
+                hint: "Handlingen å sette seg inn i andres følelser.",
+                options: [
+                    { text: "Å lytte og prøve å forstå pasientens følelser.", isCorrect: true, rationale: "Riktig! Empati betyr medfølelse og forståelse." },
+                    { text: "Å alltid være enig i alt pasienten sier.", isCorrect: false, rationale: "Du må vurdere faglige behov uansett." }
+                ]
+            },
+            {
+                question: "Hva betyr uttrykket 'å holde hodet kaldt'?",
+                hint: "Motsatsen til å få panikk.",
+                options: [
+                    { text: "Å forbli rolig og tenke klart i en akutt situasjon.", isCorrect: true, rationale: "Riktig! Det betyr å bevare roen." },
+                    { text: "Å hente et glass kaldt vann.", isCorrect: false, rationale: "Dette er bokstavelig, ikke billedlig." }
+                ]
+            },
+            {
+                question: "Hva er hovedmålet med god 'ergonomi'?",
+                hint: "Hvordan du løfter og bruker kroppen.",
+                options: [
+                    { text: "Å unngå skader på rygg og kropp ved å bruke riktig teknikk.", isCorrect: true, rationale: "Riktig! Ergonomi beskytter helsearbeiderens egen kropp." },
+                    { text: "Å vaske hendene ofte.", isCorrect: false, rationale: "Det handler om hygiene." }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        function loadQuestion() {
+            answered = false;
+            const q = quizData[currentQuestion];
+            document.getElementById("quizProgress").innerText = `Spørsmål ${currentQuestion + 1} / ${quizData.length}`;
+            document.getElementById("questionText").innerText = q.question;
+            document.getElementById("hintText").innerText = q.hint ? `Hint: ${q.hint}` : '';
+            
+            const container = document.getElementById("optionsContainer");
+            container.innerHTML = "";
+            
+            const expBox = document.getElementById("explanationBox");
+            expBox.classList.add("hidden");
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement("button");
+                btn.className = "quiz-option w-full text-left p-4 rounded-xl border border-slate-200 text-sm font-medium transition flex items-start gap-3";
+                btn.innerHTML = `<span class="bg-slate-100 text-slate-600 rounded-full w-6 h-6 flex items-center justify-center text-xs shrink-0">${String.fromCharCode(65 + idx)}</span> <span>${opt.text}</span>`;
+                btn.onclick = () => selectOption(opt, btn);
+                container.appendChild(btn);
+            });
+
+            document.getElementById("prevBtn").disabled = currentQuestion === 0;
+            document.getElementById("nextBtn").innerText = currentQuestion === quizData.length - 1 ? "Se Resultat" : "Neste";
+        }
+
+        function selectOption(option, btnElement) {
+            if (answered) return;
+            answered = true;
+
+            const expBox = document.getElementById("explanationBox");
+            expBox.classList.remove("hidden");
+            expBox.innerText = option.rationale;
+
+            if (option.isCorrect) {
+                btnElement.classList.add("selected-correct");
+                expBox.className = "p-4 rounded-xl text-sm leading-relaxed bg-emerald-50 text-emerald-900 border border-emerald-200 mt-4";
+                score++;
+            } else {
+                btnElement.classList.add("selected-incorrect");
+                expBox.className = "p-4 rounded-xl text-sm leading-relaxed bg-rose-50 text-rose-900 border border-rose-200 mt-4";
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        }
+
+        function showResults() {
+            document.getElementById("quizContainer").classList.add("hidden");
+            document.getElementById("resultsScreen").classList.remove("hidden");
+            document.getElementById("scoreText").innerText = `Du fikk ${score} av ${quizData.length} riktige besvarelser!`;
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById("resultsScreen").classList.add("hidden");
+            document.getElementById("quizContainer").classList.remove("hidden");
+            loadQuestion();
+        }
+
+        // Start quiz ved oppstart
+        window.onload = function() {
+            loadQuestion();
+        };
+    </script>
+</body>
+</html>
